@@ -130,3 +130,6 @@ animation = &"run"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3.5, 6.5)
 shape = SubResource("RectangleShape2D_j4p14")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -216)

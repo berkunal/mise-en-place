@@ -30,4 +30,4 @@ func _process(delta):
 		$AnimatedSprite2D.flip_h = velocity.x < 0
 
 	position += velocity * delta
-	position = position.clamp(Vector2.ZERO, screen_size)
+	# position = position.clamp(Vector2.ZERO, screen_size)
