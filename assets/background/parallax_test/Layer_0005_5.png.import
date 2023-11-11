@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2pdyk7ge54q6"
-path="res://.godot/imported/Layer_0000_9.png-ceadbbdc7dc57df961b9c9e4103b7cf8.ctex"
+uid="uid://dalyxd0wakey1"
+path="res://.godot/imported/Layer_0005_5.png-b85230247802385ea4f6569a0867505c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/background/Layer_0000_9.png"
-dest_files=["res://.godot/imported/Layer_0000_9.png-ceadbbdc7dc57df961b9c9e4103b7cf8.ctex"]
+source_file="res://assets/background/parallax_test/Layer_0005_5.png"
+dest_files=["res://.godot/imported/Layer_0005_5.png-b85230247802385ea4f6569a0867505c.ctex"]
 
 [params]
 

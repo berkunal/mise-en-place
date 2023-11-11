@@ -133,3 +133,5 @@ shape = SubResource("RectangleShape2D_j4p14")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -216)
+limit_smoothed = true
+position_smoothing_enabled = true

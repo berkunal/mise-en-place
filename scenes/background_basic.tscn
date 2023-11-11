@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://g3ec348fdnin"]
+
+[ext_resource type="Texture2D" uid="uid://xwxj833en7q7" path="res://assets/background/background_basic.png" id="1_2wkcy"]
+
+[node name="BackgroundBasic" type="Sprite2D"]
+position = Vector2(649.111, 325.5)
+scale = Vector2(2.24653, 2.24653)
+texture = ExtResource("1_2wkcy")
