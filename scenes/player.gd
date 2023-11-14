@@ -25,8 +25,6 @@ func _process(delta):
 
 	if velocity.x != 0:
 		$AnimatedSprite2D.flip_h = velocity.x < 0
-		
-	var cam_pos: Vector2 = $Camera2D.global_position
 
 	position += velocity * delta
 	position.x = clamp(position.x, $Camera2D.limit_left, $Camera2D.limit_right)
