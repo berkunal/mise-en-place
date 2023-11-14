@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://box0xqsfg260c"]
+[gd_scene load_steps=5 format=3 uid="uid://box0xqsfg260c"]
 
 [ext_resource type="PackedScene" uid="uid://g3ec348fdnin" path="res://scenes/background_basic.tscn" id="1_ai2au"]
 [ext_resource type="PackedScene" uid="uid://6bttt3xi5n17" path="res://scenes/player.tscn" id="1_b6mun"]
 [ext_resource type="Script" path="res://scenes/main_scene.gd" id="1_byfom"]
+[ext_resource type="PackedScene" uid="uid://b5mslxbl6wydh" path="res://scenes/currency.tscn" id="4_o0bk7"]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_byfom")
@@ -11,3 +12,21 @@ script = ExtResource("1_byfom")
 
 [node name="Player" parent="." instance=ExtResource("1_b6mun")]
 position = Vector2(575, 541)
+
+[node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="Currency" parent="GUI" instance=ExtResource("4_o0bk7")]
+offset_left = 34.0
+offset_top = 24.0
+offset_right = 34.0
+offset_bottom = 24.0
+
+[node name="TestButton" type="Button" parent="GUI"]
+offset_left = 164.0
+offset_top = 207.0
+offset_right = 296.0
+offset_bottom = 294.0
+text = "+2 to eggs
+(FOR TEST)"
+
+[connection signal="pressed" from="GUI/TestButton" to="GUI/Currency" method="_on_test_button_pressed"]
