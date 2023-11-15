@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://c0aeat8qibts1"]
+
+[ext_resource type="Script" path="res://components/basic_appliance/basic_appliance.gd" id="1_j2gln"]
+[ext_resource type="Texture2D" uid="uid://dfaeq81b10hvf" path="res://icon.svg" id="2_bd32e"]
+
+[sub_resource type="Curve2D" id="Curve2D_v40xj"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 8, 15, 0, 0, 0, 0, 66, 2, 0, 0, 0, 0, 121, 15)
+}
+point_count = 3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ig5fp"]
+size = Vector2(128, 25)
+
+[node name="BasicAppliance" type="Area2D"]
+script = ExtResource("1_j2gln")
+
+[node name="Coins" type="Node2D" parent="."]
+
+[node name="Path2D" type="Path2D" parent="Coins"]
+curve = SubResource("Curve2D_v40xj")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Coins/Path2D"]
+position = Vector2(8, 15)
+rotation = -0.220494
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, 35)
+texture = ExtResource("2_bd32e")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(64, 175.5)
+shape = SubResource("RectangleShape2D_ig5fp")
+
+[node name="TempLabel" type="Label" parent="."]
+visible = false
+offset_left = 25.0
+offset_top = 70.0
+offset_right = 106.0
+offset_bottom = 96.0
+text = "Upgraded!"
