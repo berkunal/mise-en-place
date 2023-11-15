@@ -6,7 +6,7 @@ func _ready():
 	set_camera_limits()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 # Sets the player's camera limits to prevent scrolling too much
@@ -28,3 +28,12 @@ func get_bg_width():
 
 	var currentSize: Vector2 = bgScaleVector * bgTextureSize
 	return currentSize.x
+
+
+func _on_basic_appliance_upgrade_purchased(required_coin):
+	if required_coin > $GUI/Currency.current_money:
+		printerr("not enough eggs")
+		return
+	
+	$GUI/Currency.increment_money_by_value(-required_coin)
+	$BasicAppliance.upgrade()

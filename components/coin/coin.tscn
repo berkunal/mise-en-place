@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cc7ds8lanc1q0"]
+
+[ext_resource type="Texture2D" uid="uid://byy6q13pycwrx" path="res://assets/icons/38_friedegg.png" id="1_f75xf"]
+
+[node name="coin" type="Sprite2D"]
+texture = ExtResource("1_f75xf")
