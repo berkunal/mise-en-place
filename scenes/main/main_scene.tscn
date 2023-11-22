@@ -1,29 +1,28 @@
-[gd_scene load_steps=6 format=3 uid="uid://box0xqsfg260c"]
+[gd_scene load_steps=7 format=3 uid="uid://box0xqsfg260c"]
 
 [ext_resource type="PackedScene" uid="uid://g3ec348fdnin" path="res://components/backgrounds/background_basic.tscn" id="1_ai2au"]
 [ext_resource type="PackedScene" uid="uid://6bttt3xi5n17" path="res://components/player/player.tscn" id="1_b6mun"]
 [ext_resource type="Script" path="res://scenes/main/main_scene.gd" id="1_byfom"]
 [ext_resource type="PackedScene" uid="uid://b5mslxbl6wydh" path="res://components/currency/currency.tscn" id="4_o0bk7"]
 [ext_resource type="PackedScene" uid="uid://c0aeat8qibts1" path="res://components/basic_appliance/basic_appliance.tscn" id="5_a2c5v"]
+[ext_resource type="Script" path="res://scenes/main/appliances.gd" id="5_amuu7"]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_byfom")
 
 [node name="BackgroundBasic" parent="." instance=ExtResource("1_ai2au")]
 
-[node name="BasicAppliance" parent="." instance=ExtResource("5_a2c5v")]
-position = Vector2(202, 333)
-
 [node name="Player" parent="." instance=ExtResource("1_b6mun")]
 position = Vector2(575, 541)
 
 [node name="GUI" type="CanvasLayer" parent="."]
+layer = 2
 
 [node name="Currency" parent="GUI" instance=ExtResource("4_o0bk7")]
-offset_left = 34.0
-offset_top = 24.0
-offset_right = 34.0
-offset_bottom = 24.0
+offset_left = 28.0
+offset_top = 21.0
+offset_right = 81.0
+offset_bottom = 54.0
 
 [node name="TestButton" type="Button" parent="GUI"]
 offset_left = 134.0
@@ -33,7 +32,19 @@ offset_bottom = 79.0
 text = "+2 to eggs
 (FOR TEST)"
 
-[connection signal="upgrade_purchased" from="BasicAppliance" to="." method="_on_basic_appliance_upgrade_purchased"]
-[connection signal="area_entered" from="Player" to="BasicAppliance" method="_on_player_area_entered"]
-[connection signal="area_exited" from="Player" to="BasicAppliance" method="_on_player_area_exited"]
+[node name="Appliances" type="Node2D" parent="."]
+script = ExtResource("5_amuu7")
+
+[node name="BasicAppliance" parent="Appliances" instance=ExtResource("5_a2c5v")]
+position = Vector2(202, 333)
+
+[node name="BasicAppliance2" parent="Appliances" instance=ExtResource("5_a2c5v")]
+position = Vector2(0, 332)
+
+[node name="BasicAppliance3" parent="Appliances" instance=ExtResource("5_a2c5v")]
+position = Vector2(910, 330)
+
+[connection signal="area_entered" from="Player" to="Appliances" method="_on_player_area_entered"]
+[connection signal="area_exited" from="Player" to="Appliances" method="_on_player_area_exited"]
 [connection signal="pressed" from="GUI/TestButton" to="GUI/Currency" method="_on_test_button_pressed"]
+[connection signal="upgrade_requested" from="Appliances" to="." method="_on_appliances_upgrade_requested"]

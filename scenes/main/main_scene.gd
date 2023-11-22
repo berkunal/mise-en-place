@@ -30,10 +30,10 @@ func get_bg_width():
 	return currentSize.x
 
 
-func _on_basic_appliance_upgrade_purchased(required_coin):
-	if required_coin > $GUI/Currency.current_money:
+func _on_appliances_upgrade_requested(appliance):
+	if appliance.coin_needed_for_build > $GUI/Currency.current_money:
 		printerr("not enough eggs")
 		return
-	
-	$GUI/Currency.increment_money_by_value(-required_coin)
-	$BasicAppliance.upgrade()
+
+	$GUI/Currency.increment_money_by_value(-appliance.coin_needed_for_build)
+	appliance.upgrade()
